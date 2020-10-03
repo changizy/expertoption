@@ -27,18 +27,27 @@ time.sleep(2)
 inputelm.clear()
 inputelm.send_keys("1")
 
-prof = 0
-while prof == 0  
-#############  press buy button #############
-    browser.find_element_by_class_name("call").click()
-############## get result of position ##############
-    prof = browser.find_elements_by_xpath('//*[@id="app"]/div/div/div/div[3]/div/div/div/div[2]/div[2]/div/div/div[3]/div[1]/div[2]/div[2]/span')[0].text
-    print(prof)
-##############
-
-    time.sleep(2)
-#########Close result
-    browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div[3]/div/div/div/div[1]/span').click()
+while 2>=1 :
+    Amount = 1
+    inputelm.clear()
+    inputelm.send_keys(Amount)
+    prof = 0
+    while prof == 0 :   
+    #############  press buy button #############
+        browser.find_element_by_class_name("call").click()
+    ############## get result of position ##############
+        prof = browser.find_elements_by_xpath('//*[@id="app"]/div/div/div/div[3]/div/div/div/div[2]/div[2]/div/div/div[3]/div[1]/div[2]/div[2]/span')[0].text
+        print(prof)
+        prof = prof[1]    
+    ##############
+        time.sleep(2)
+    #########Close result
+        browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div[3]/div/div/div/div[1]/span').click()
+        prof = int(prof)
+        print(prof)
+        Amount = Amount + Amount + 1
+        inputelm.clear()
+        inputelm.send_keys(Amount)
 
 
 #############  press buy button #############
