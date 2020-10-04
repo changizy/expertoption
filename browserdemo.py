@@ -38,7 +38,7 @@ while 2>=1 :
     ############## get result of position ##############
         prof = browser.find_elements_by_xpath('//*[@id="app"]/div/div/div/div[3]/div/div/div/div[2]/div[2]/div/div/div[3]/div[1]/div[2]/div[2]/span')[0].text
         print(prof)
-        prof = prof[1]    
+        prof = prof[1]
     ##############
         time.sleep(2)
     #########Close result
@@ -46,6 +46,19 @@ while 2>=1 :
         prof = int(prof)
         print(prof)
         Amount = Amount + Amount + 1
+        if Amount == 15:
+            Amount = 33
+            elif Amount == 67:
+                Amount = 75
+                elif Amount == 151:
+                    Amount = 168
+                    elif Amount == 337 :
+                        Amount = 379
+                        elif Amount == 759:
+                            Amount = 853
+                            else:
+                                Amount = 1
+
         inputelm.clear()
         inputelm.send_keys(Amount)
 
