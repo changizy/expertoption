@@ -48,17 +48,17 @@ while 2>=1 :
         Amount = Amount + Amount + 1
         if Amount == 15:
             Amount = 33
-            elif Amount == 67:
+            if Amount == 67:
                 Amount = 75
-                elif Amount == 151:
+                if Amount == 151:
                     Amount = 168
-                    elif Amount == 337 :
+                    if Amount == 337 :
                         Amount = 379
-                        elif Amount == 759:
+                        if Amount == 759:
                             Amount = 853
-                            else:
+                            if Amount == 1707:
                                 Amount = 1
-                                print ('Over 9th failed trade!!!')
+                                print('Over 9th failed trade!!!')
 
         inputelm.clear()
         inputelm.send_keys(Amount)
