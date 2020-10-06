@@ -18,14 +18,29 @@ finally:
     print(browser.title)
 
 
-##### change Amount #############
+##### change Stok name #############
 # WebElement. value = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div[1]/div/div/div/div/div/div/div[4]/div[2]/div/div[1]/div[1]/div[2]/span[2]/input')
 # value.send_keys('1')
+browser.find_element_by_class_name("button-content").click()
+inputelm = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div[3]/div/div/div/div[2]/div[2]/div[1]/form/input')
+inputelm.clear()
+time.sleep(1)
+inputelm.clear()
+inputelm.send_keys("Bitcoin")
+time.sleep(2)
+browser.find_element_by_class_name("item__inner").click()
+print('left pressed')
+time.sleep(2)
+browser.find_element_by_class_name("save").click()
+print('Alpy pressed')
+time.sleep(3)
+##### change Amount #############
 inputelm = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div[1]/div/div/div/div/div/div/div[4]/div[2]/div/div[1]/div[1]/div[2]/span[2]/input')
 inputelm.clear()
-time.sleep(2)
+time.sleep(1)
 inputelm.clear()
 inputelm.send_keys("1")
+
 
 while 2>=1 :
     Amount = 1
@@ -48,17 +63,17 @@ while 2>=1 :
         Amount = Amount + Amount + 1
         if Amount == 15:
             Amount = 33
-            if Amount == 67:
-                Amount = 75
-                if Amount == 151:
-                    Amount = 168
-                    if Amount == 337 :
-                        Amount = 379
-                        if Amount == 759:
-                            Amount = 853
-                            if Amount == 1707:
-                                Amount = 1
-                                print('Over 9th failed trade!!!')
+        if Amount == 67:
+            Amount = 75
+        if Amount == 151:
+            Amount = 168
+        if Amount == 337 :
+            Amount = 379
+        if Amount == 759:
+            Amount = 853
+        if Amount == 1707:
+            Amount = 1
+            print('Over 9th failed trade!!!')
 
         inputelm.clear()
         inputelm.send_keys(Amount)
