@@ -1,13 +1,17 @@
 import time
+import json
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions
+
 options = webdriver.ChromeOptions()
 options.headless = False
+
 browser = webdriver.Chrome(executable_path="/home/toor/Desktop/Option/chromedriver", options=options)
+browser.maximize_window()
 browser.get("https://expertoption.com/?demo=true")
 try:
     browser.implicitly_wait(100)
@@ -18,9 +22,7 @@ finally:
     print(browser.title)
 
 
-##### change Stok name #############
-# WebElement. value = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div[1]/div/div/div/div/div/div/div[4]/div[2]/div/div[1]/div[1]/div[2]/span[2]/input')
-# value.send_keys('1')
+##### change Stock name #############
 browser.find_element_by_class_name("button-content").click()
 inputelm = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div[3]/div/div/div/div[2]/div[2]/div[1]/form/input')
 inputelm.clear()
@@ -29,10 +31,8 @@ inputelm.clear()
 inputelm.send_keys("Bitcoin")
 time.sleep(2)
 browser.find_element_by_class_name("item__inner").click()
-print('left pressed')
 time.sleep(2)
 browser.find_element_by_class_name("save").click()
-print('Alpy pressed')
 time.sleep(3)
 ##### change Amount #############
 inputelm = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div[1]/div/div/div/div/div/div/div[4]/div[2]/div/div[1]/div[1]/div[2]/span[2]/input')
@@ -51,8 +51,9 @@ while 2>=1 :
     #############  press buy button #############
         browser.find_element_by_class_name("call").click()
     ############## get result of position ##############
+        time.sleep(2)
         prof = browser.find_elements_by_xpath('//*[@id="app"]/div/div/div/div[3]/div/div/div/div[2]/div[2]/div/div/div[3]/div[1]/div[2]/div[2]/span')[0].text
-       # print(prof)
+        print(prof)
         prof = prof[1]
     ##############
         time.sleep(2)
