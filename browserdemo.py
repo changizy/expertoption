@@ -11,7 +11,15 @@ options = webdriver.ChromeOptions()
 options.headless = False
 
 browser = webdriver.Chrome(executable_path="/home/toor/Desktop/Option/chromedriver", options=options)
-browser.maximize_window()
+#browser.maximize_window()
+browser.get("file:///home/toor/Desktop/Option/bitcoin.html")
+time.sleep(5)
+#pos1 = browser.find_elements_by_xpath("//*[@id=""widget-technical-analysis-container""]/div/div/div/span[2]")
+#print('pos1:')
+#print(pos1)
+
+browser.find_element(By.NAME,'bitcoin.html').send_keys(Keys.CONTROL+"t")
+time.sleep(5)
 browser.get("https://expertoption.com/?demo=true")
 try:
     browser.implicitly_wait(100)
@@ -24,7 +32,7 @@ finally:
 
 ##### change Stock name #############
 browser.find_element_by_class_name("button-content").click()
-inputelm = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div[3]/div/div/div/div[2]/div[2]/div[1]/form/input')
+inputelm = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div[3]/div/div/div/div[2]/div[2]/div[1]/form/input')[0].text
 inputelm.clear()
 time.sleep(1)
 inputelm.clear()
