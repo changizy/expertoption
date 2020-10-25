@@ -6,33 +6,30 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions
-
 options = webdriver.ChromeOptions()
 options.headless = False
-
 browser = webdriver.Chrome(executable_path="/home/toor/Desktop/Option/chromedriver", options=options)
 #browser.maximize_window()
-browser.get("file:///home/toor/Desktop/Option/bitcoin.html")
-time.sleep(5)
-#pos1 = browser.find_elements_by_xpath("//*[@id=""widget-technical-analysis-container""]/div/div/div/span[2]")
+#browser.get("http://www.changizy.com")
+#main_window = browser.current_window_handle
+#time.sleep(5)
+#browser.execute_script("window.open('file:///home/toor/Desktop/Option/bitcoin.html')")
+#pos1 = browser.find_elements_by_xpath('//*[@id="widget-technical-analysis-container"]/div/div/div/span[2]')
 #print('pos1:')
 #print(pos1)
-
-browser.find_element(By.NAME,'bitcoin.html').send_keys(Keys.CONTROL+"t")
+#time.sleep(5)
+#browser.switch_to_window(main_window)
 time.sleep(5)
 browser.get("https://expertoption.com/?demo=true")
 try:
     browser.implicitly_wait(100)
     timestamp = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div[1]/div/div/div/div/div/div/div[4]/div[2]/div/div[1]/div[3]/div[2]/div[2]')
     print('Current timestamp: %s' % (timestamp.text.split(' ')[0]))
-   # time.sleep(20)
 finally:
     print(browser.title)
-
-
 ##### change Stock name #############
 browser.find_element_by_class_name("button-content").click()
-inputelm = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div[3]/div/div/div/div[2]/div[2]/div[1]/form/input')[0].text
+inputelm = browser.find_element_by_xpath('//*[@id="app"]/div/div/div/div[3]/div/div/div/div[2]/div[2]/div[1]/form/input')
 inputelm.clear()
 time.sleep(1)
 inputelm.clear()
