@@ -5,21 +5,35 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.expected_conditions import presence_of_element_located
+
+from os import listdir
+from pathlib import Path
+
 options = webdriver.ChromeOptions()
 options.headless = False
 browser = webdriver.Chrome(executable_path="/home/toor/Desktop/Option/chromedriver", options=options)
-#browser.maximize_window()
-#browser.get("http://www.changizy.com")
-#main_window = browser.current_window_handle
-#time.sleep(5)
-#browser.execute_script("window.open('file:///home/toor/Desktop/Option/bitcoin.html')")
+browser.maximize_window()
+
+browser.get("https://expertoption.com/?demo=true")
+
+main_w = browser.current_window_handle
+assert len(browser.window_handles) == 1
+#time.sleep(3)
+html_file = Path.cwd() / "file:///home/toor/Desktop/Option/bitcoin.html"
+#browser.execute_script('window.open(html_file.as_uri());')
+
+browser.switch_to.new_window('tab')
+
 #pos1 = browser.find_elements_by_xpath('//*[@id="widget-technical-analysis-container"]/div/div/div/span[2]')
 #print('pos1:')
 #print(pos1)
-#time.sleep(5)
-#browser.switch_to_window(main_window)
-time.sleep(5)
+#time.sleep(3)
+#browser.switch_to_window(main_w)
+#time.sleep(3)
+
+
 browser.get("https://expertoption.com/?demo=true")
 try:
     browser.implicitly_wait(100)
